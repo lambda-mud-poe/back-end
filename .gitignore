@@ -116,7 +116,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# vs code
 .DS_Store
+.vscode
 
 # Django stuff:
 *.log
