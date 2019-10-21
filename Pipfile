@@ -16,6 +16,7 @@ django-heroku = "*"
 django-rest-api = "*"
 pylint = "*"
 autopep8 = "*"
+psycopg2 = "==2.7.7"
 
 [dev-packages]
 
