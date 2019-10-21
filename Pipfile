@@ -17,6 +17,9 @@ django-rest-api = "*"
 pylint = "*"
 autopep8 = "*"
 psycopg2 = "==2.7.7"
+psycopg2-binary = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [dev-packages]
 
