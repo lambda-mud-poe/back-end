@@ -1,2 +1,2 @@
-### Lambda CS Game
+### Lambda CS Game Backend
 # back-end
