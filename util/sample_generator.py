@@ -21,12 +21,14 @@ class Room:
     def __repr__(self):
         if self.e_to is not None:
             return f"({self.x}, {self.y}) -> ({self.e_to.x}, {self.e_to.y})"
+
         return f"({self.x}, {self.y})"
 
     def connect_rooms(self, connecting_room, direction):
         '''
         Connect two rooms in the given n/s/e/w direction
         '''
+
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
         reverse_dir = reverse_dirs[direction]
         setattr(self, f"{direction}_to", connecting_room)
@@ -50,10 +52,12 @@ class World:
         Fill up the grid, bottom to top, in a zig-zag pattern
         '''
 
-        # Initialize the grid
+        # Initialize the grid's height
         self.grid = [None] * size_y
         self.width = size_x
         self.height = size_y
+
+        # fill the row up with an array of None
         for i in range(len(self.grid)):
             self.grid[i] = [None] * size_x
 
@@ -67,6 +71,7 @@ class World:
 
         # While there are rooms to be created...
         previous_room = None
+
         while room_count < num_rooms:
 
             # Calculate the direction of the room to be created
