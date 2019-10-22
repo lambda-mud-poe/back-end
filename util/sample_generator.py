@@ -84,8 +84,9 @@ class World:
                 room_direction = "w"
                 x -= 1
             else:
-                # If we hit a wall, turn north and reverse direction
-                room_direction = "n"
+                # REMOVED THE NORTH SOUTH MAPPING AT THE ENDS OF THE MAP
+                # # If we hit a wall, turn north and reverse direction
+                # room_direction = "n"
                 y += 1
                 direction *= -1
 
