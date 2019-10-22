@@ -28,23 +28,23 @@ class Room(models.Model):
             if direction == "n":
                 self.n_to = destinationRoomID
                 # set the s_to of the destinationRoom to self.id
-                destinationRoom.s_to = self.id
-                # save the change
-                destinationRoom.save()
+                # destinationRoom.s_to = self.id
+                # # save the change
+                # destinationRoom.save()
             elif direction == "s":
                 self.s_to = destinationRoomID
             elif direction == "e":
                 self.e_to = destinationRoomID
                 # set the w_to of the destinationRoom to self.id
-                destinationRoom.w_to = self.id
-                # save the change
-                destinationRoom.save()
+                # destinationRoom.w_to = self.id
+                # # save the change
+                # destinationRoom.save()
             elif direction == "w":
                 self.w_to = destinationRoomID
                 # set the e_to of the destinationRoom to self.id
-                destinationRoom.e_to = self.id
-                # save the change
-                destinationRoom.save()
+                # destinationRoom.e_to = self.id
+                # # save the change
+                # destinationRoom.save()
             else:
                 print("Invalid direction")
                 return
