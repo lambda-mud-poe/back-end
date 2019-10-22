@@ -106,7 +106,7 @@ class World:
             previous_room = room
             room_count += 1
 
-        # this step downward will create connections to the north and south at random points in the game
+        # THIS STEP DOWNWARD WILL CREATE NORTH-SOUTH CONNECTIONS AT RANDOM POINTS IN THE MAP
         # set room_count to zero again
         room_count = 0
         # set x and y to zero
