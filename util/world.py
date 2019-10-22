@@ -1,6 +1,7 @@
 from api.models import Room
 import random
 
+
 class World:
     def __init__(self):
         self.grid = None
@@ -30,6 +31,8 @@ class World:
         # While there are rooms to be created...
         previous_room = None
 
+        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
+
         while room_count <= num_rooms:
 
             # Calculate the direction of the room to be created
@@ -58,6 +61,7 @@ class World:
             # Connect the new room to the previous room
             if previous_room is not None:
                 previous_room.connectRooms(room, room_direction)
+                room.connectRooms(previous_room, reverse_dirs[room_direction])
 
             # Update iteration variables
             previous_room = room
@@ -81,6 +85,7 @@ class World:
                 if random.choice(choices):
                     # connect with the room to the north
                     self.grid[y][x].connectRooms(self.grid[y + 1][x], "n")
+                    self.grid[y + 1][x].connectRooms(self.grid[y][x], "s")
 
             # increment x
             x += 1
