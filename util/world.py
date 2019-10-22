@@ -21,7 +21,8 @@ class World:
         # Start from lower-left corner (0,0)
         x = -1  # (this will become 0 on the first step)
         y = 0
-        room_count = 0
+        # set to 1 so id can begin at 1
+        room_count = 1
 
         # Start generating rooms to the east
         direction = 1  # 1: east, -1: west
@@ -29,7 +30,7 @@ class World:
         # While there are rooms to be created...
         previous_room = None
 
-        while room_count < num_rooms:
+        while room_count <= num_rooms:
 
             # Calculate the direction of the room to be created
             if direction > 0 and x < size_x - 1:
