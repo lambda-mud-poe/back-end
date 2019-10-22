@@ -5,6 +5,8 @@
 # procedural generation algorithm and use print_rooms()
 # to see the world.
 
+import random
+
 
 class Room:
     def __init__(self, id, name, description, x, y):
@@ -102,6 +104,17 @@ class World:
             # Update iteration variables
             previous_room = room
             room_count += 1
+
+        # this step downward will create connections to the north and south at random points in the game
+        # set room_count to zero again
+        # set x and y to zero
+        # set another variable index to zero
+        # create an array range to hold choices
+        # choices = [False, True, False, False, True]
+        # loop while room_count is less than num_rooms
+            # if y is less than size_y
+                # randomize choices
+                # if true set a northward position
 
     def print_rooms(self):
         '''
