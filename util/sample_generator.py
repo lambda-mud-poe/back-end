@@ -107,14 +107,32 @@ class World:
 
         # this step downward will create connections to the north and south at random points in the game
         # set room_count to zero again
+        room_count = 0
         # set x and y to zero
+        x = 0
+        y = 0
         # set another variable index to zero
         # create an array range to hold choices
-        # choices = [False, True, False, False, True]
+        choices = [False, True, False, False, True]
         # loop while room_count is less than num_rooms
+        while room_count < num_rooms:
             # if y is less than size_y
+            if y < size_y - 1:
                 # randomize choices
                 # if true set a northward position
+                if random.choice(choices):
+                    # connect with the room to the north
+                    self.grid[y][x].connect_rooms(self.grid[y + 1][x], "n")
+
+            # increment x
+            x += 1
+            # increment room_count
+            room_count += 1
+
+            # if x is at the last position increment y and reset x
+            if x == size_x:
+                x = 0
+                y += 1
 
     def print_rooms(self):
         '''
@@ -172,9 +190,9 @@ class World:
 
 
 w = World()
-num_rooms = 44
-width = 8
-height = 7
+num_rooms = 225
+width = 15
+height = 15
 w.generate_rooms(width, height, num_rooms)
 w.print_rooms()
 
