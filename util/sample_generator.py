@@ -31,7 +31,8 @@ class Room:
         Connect two rooms in the given n/s/e/w direction
         '''
 
-        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
+        # add a key err for bad mapping
+        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e", "err": "err"}
         reverse_dir = reverse_dirs[direction]
         setattr(self, f"{direction}_to", connecting_room)
         setattr(connecting_room, f"{reverse_dir}_to", self)
@@ -86,7 +87,8 @@ class World:
             else:
                 # REMOVED THE NORTH SOUTH MAPPING AT THE ENDS OF THE MAP
                 # # If we hit a wall, turn north and reverse direction
-                # room_direction = "n"
+                # set a direction err for no mapping
+                room_direction = "err"
                 y += 1
                 direction *= -1
 
@@ -191,9 +193,9 @@ class World:
 
 
 w = World()
-num_rooms = 400
-width = 20
-height = 20
+num_rooms = 100
+width = 10
+height = 10
 w.generate_rooms(width, height, num_rooms)
 w.print_rooms()
 
