@@ -31,7 +31,7 @@ class World:
         # While there are rooms to be created...
         previous_room = None
 
-        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
+        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e", "err": "err"}
 
         while room_count <= num_rooms:
 
@@ -45,7 +45,8 @@ class World:
             else:
                 # REMOVED THE NORTH SOUTH MAPPING AT THE ENDS OF THE MAP
                 # # If we hit a wall, turn north and reverse direction
-                # room_direction = "n"
+                # set the direction to something useless
+                room_direction = "err"
                 y += 1
                 direction *= -1
 
