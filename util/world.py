@@ -31,7 +31,11 @@ class World:
         # While there are rooms to be created...
         previous_room = None
 
+        # use to reverse the direction of the room
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e", "err": "err"}
+
+        # will be used to create chasm
+        break_choices = [False, True, False, False, False]
 
         while room_count <= num_rooms:
 
@@ -49,6 +53,15 @@ class World:
                 room_direction = "err"
                 y += 1
                 direction *= -1
+
+            # THIS CREATES A CHASM IN THE EAST-WEST CONNECTION AT RANDOM POINTS
+            # if 1 < y < (size_y - 3)
+            if 1 < y < (size_y - 3):
+                # randomize break_choices
+                choice = random.choice(break_choices)
+                # if true break the connection by setting the room direction to err
+                if choice:
+                    room_direction = "err"
 
             # Create a room in the given direction
             room = Room(id=room_count, title="A Generic Room",
