@@ -126,7 +126,7 @@ class World:
             # PRINT NORTH CONNECTION ROW
             str += "#"
             for room in row:
-                if room is not None and room.n_to is not None:
+                if room != 0 and room.n_to != 0:
                     str += "  |  "
                 else:
                     str += "     "
@@ -134,15 +134,15 @@ class World:
             # PRINT ROOM ROW
             str += "#"
             for room in row:
-                if room is not None and room.w_to is not None:
+                if room != 0 and room.w_to != 0:
                     str += "-"
                 else:
                     str += " "
-                if room is not None:
+                if room != 0:
                     str += f"{room.id}".zfill(3)
                 else:
                     str += "   "
-                if room is not None and room.e_to is not None:
+                if room != 0 and room.e_to != 0:
                     str += "-"
                 else:
                     str += " "
@@ -150,7 +150,7 @@ class World:
             # PRINT SOUTH CONNECTION ROW
             str += "#"
             for room in row:
-                if room is not None and room.s_to is not None:
+                if room != 0 and room.s_to != 0:
                     str += "  |  "
                 else:
                     str += "     "
