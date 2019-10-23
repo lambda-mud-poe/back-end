@@ -79,11 +79,6 @@ class World:
         # break_choices = [False, True, False, False, False]
 
         while room_count < num_rooms:
-            #THIS CREATES A CHASM IN THE EAST-WEST CONNECTION AT RANDOM POINTS
-            # if 1 < y < (size_y - 3)
-            # randomize break_choices
-            # if true break the connection
-
             # Calculate the direction of the room to be created
             if direction > 0 and x < size_x - 1:
                 room_direction = "e"
@@ -98,6 +93,11 @@ class World:
                 room_direction = "err"
                 y += 1
                 direction *= -1
+
+            # THIS CREATES A CHASM IN THE EAST-WEST CONNECTION AT RANDOM POINTS
+            # if 1 < y < (size_y - 3)
+            # randomize break_choices
+            # if true break the connection by setting the room direction to err
 
             # Create a room in the given direction
             room = Room(room_count, "A Generic Room",
