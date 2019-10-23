@@ -97,7 +97,7 @@ class World:
             # THIS CREATES A CHASM IN THE EAST-WEST CONNECTION AT RANDOM POINTS
             # if 1 < y < (size_y - 3)
             if 1 < y < (size_y - 3):
-            # randomize break_choices
+                # randomize break_choices
                 choice = random.choice(break_choices)
                 # if true break the connection by setting the room direction to err
                 if choice:
