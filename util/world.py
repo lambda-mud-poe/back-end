@@ -31,7 +31,11 @@ class World:
         # While there are rooms to be created...
         previous_room = None
 
+        # use to reverse the direction of the room
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e", "err": "err"}
+
+        # will be used to create chasm
+        break_choices = [False, True, False, False, False]
 
         while room_count <= num_rooms:
 
@@ -49,6 +53,15 @@ class World:
                 room_direction = "err"
                 y += 1
                 direction *= -1
+
+            # THIS CREATES A CHASM IN THE EAST-WEST CONNECTION AT RANDOM POINTS
+            # if 1 < y < (size_y - 3)
+            if 1 < y < (size_y - 3):
+                # randomize break_choices
+                choice = random.choice(break_choices)
+                # if true break the connection by setting the room direction to err
+                if choice:
+                    room_direction = "err"
 
             # Create a room in the given direction
             room = Room(id=room_count, title="A Generic Room",
@@ -113,7 +126,7 @@ class World:
             # PRINT NORTH CONNECTION ROW
             str += "#"
             for room in row:
-                if room is not None and room.n_to is not None:
+                if room != 0 and room.n_to != 0:
                     str += "  |  "
                 else:
                     str += "     "
@@ -121,15 +134,15 @@ class World:
             # PRINT ROOM ROW
             str += "#"
             for room in row:
-                if room is not None and room.w_to is not None:
+                if room != 0 and room.w_to != 0:
                     str += "-"
                 else:
                     str += " "
-                if room is not None:
+                if room != 0:
                     str += f"{room.id}".zfill(3)
                 else:
                     str += "   "
-                if room is not None and room.e_to is not None:
+                if room != 0 and room.e_to != 0:
                     str += "-"
                 else:
                     str += " "
@@ -137,7 +150,7 @@ class World:
             # PRINT SOUTH CONNECTION ROW
             str += "#"
             for room in row:
-                if room is not None and room.s_to is not None:
+                if room != 0 and room.s_to != 0:
                     str += "  |  "
                 else:
                     str += "     "
