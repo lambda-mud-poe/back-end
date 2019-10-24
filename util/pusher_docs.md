@@ -1,5 +1,7 @@
 # The Pusher Implementation Suggestion from the Dashboard
 
+This is a copy of how pusher should be implemented on the frontend and the backend.
+
 ## Frontend
 
 ```javascript
