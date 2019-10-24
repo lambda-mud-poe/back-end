@@ -1,5 +1,6 @@
 room_titles = [
-    "Outside Cave Entrance", "Plain Garden Thicket",
+    "Outside Cave Entrance",
+    "Plain Garden Thicket",
     "Puny Sumac Thicket",
     "Gorgeous Forest",
     "Mighty Woods",
