@@ -1,4 +1,5 @@
 from api.models import Room
+from .rooms import room_titles
 import random
 
 
@@ -64,8 +65,8 @@ class World:
                     room_direction = "err"
 
             # Create a room in the given direction
-            room = Room(id=room_count, title="A Generic Room",
-                        description="This is a generic room.", x=x, y=y)
+            room = Room(id=room_count, title=room_titles[room_count],
+                        description="The quest for thy nobly ring burns true and bright. Search on thou famed voyager!", x=x, y=y)
             # Note that in Django, you'll need to save the room after you create it
             room.save()
 
