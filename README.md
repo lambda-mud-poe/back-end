@@ -92,11 +92,13 @@ curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' 
 - Add your pusher credentials and secret key
 
 ```
+ALLOWED_HOSTS=localhost,127.0.0.1
+DATABASE_URL="sqlite:///db.sqlite3"
 SECRET_KEY='<your_secret_key>'
 DEBUG=True
 PUSHER_APP_ID=<your_app_id>
-PUSHER_KEY=<your_pusher_key>
-PUSHER_SECRET=<your_pusher_secret>
+PUSHER_APP_KEY=<your_pusher_key>
+PUSHER_APP_SECRET=<your_pusher_secret>
 PUSHER_CLUSTER=<your_pusher_cluster>
 ```
 
