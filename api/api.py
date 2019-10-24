@@ -84,6 +84,9 @@ def say(request):
     player = user.player
     player_id = player.id
 
+    # get the player's uuid
+    uuid = player.uuid
+
     # get the player's current room and the uuid of the players in the room
     room = player.room()
     playersUUID = room.playerUUIDs(player_id)
@@ -96,6 +99,10 @@ def say(request):
     for p_uuid in playersUUID:
         pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {
             'message': f'{player.user.username} says {message}.'})
+
+    # subscribe the user to the same message
+    pusher.trigger(f'p-channel-{uuid}', u'broadcast', {
+        'message': f'{player.user.username} says {message}.'})
 
     return JsonResponse({'message': f"Message: {message} by player {player.user.username} has been broadcast successfully."}, safe=True)
 
