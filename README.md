@@ -1,12 +1,12 @@
 # Lambda CS MUD Game Backend
 
-This is the backend of the Lambda MUD game. 🎮
+This is the backend of the :game Lambda MUD game. 🎮
 
-It is built with Python, Django, a SQLite database in development and PostgreSQL database in production.
+It is built with Python 🐍, Django, a SQLite database in development and PostgreSQL database in production.
 
-Multiple users can play the game simultaneously. Pusher is used to provide real-time communication so players can communicate during the game and get information about the position of other players.
+Multiple users can play the game simultaneously. Pusher is used to provide real-time communication 🔈 so players can communicate during the game and get information about the position of other players.
 
-## Frontend
+## Frontend 💻
 
 The frontend is built with React and can be found [here](https://mud-mount-doom.herokuapp.com/)
 
