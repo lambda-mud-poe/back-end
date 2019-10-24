@@ -45,3 +45,16 @@ curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' 
     - Pusher broadcast (stretch):
         - Players in previous room receive a message: thunder has walked east.
         - Players in next room receive a message: thunder has entered from the west.
+
+### Say[POST]
+
+curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' localhost:8000/api/say/
+
+#### Response
+
+```json
+    {"message": "Message: Hello, world! by player thunder has been broadcast successfully."}
+```
+
+    - Pusher broadcast:
+        - Players in current room receive a message: thunder says "Hello, world!"
