@@ -6,6 +6,7 @@
 # to see the world.
 
 import random
+from rooms import room_titles
 
 
 class Room:
@@ -104,8 +105,8 @@ class World:
                     room_direction = "err"
 
             # Create a room in the given direction
-            room = Room(room_count, "A Generic Room",
-                        "This is a generic room.", x, y)
+            room = Room(room_count, room_titles[room_count],
+                        "The quest for thy nobly ring burns true and bright. Search on thou famed voyager!", x, y)
             # Note that in Django, you'll need to save the room after you create it
 
             # Save the room in the World grid
