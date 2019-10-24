@@ -90,9 +90,14 @@ def say(request):
 
     # get the data from the request body
     data = json.loads(request.body)
-    direction = data['message']
+    message = data['message']
 
-    return JsonResponse({'error': "Not yet implemented"}, safe=True, status=500)
+    # broadcast message to players in the current room
+    for p_uuid in playersUUID:
+        pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {
+                        'message': f'{player.user.username} says {message}.')
+
+    return JsonResponse({'message': f"Message: {message} by player {player.user.username} has been broadcast successfully."}, safe=True)
 
 
 class RoomSerializer(serializers.HyperlinkedModelSerializer):
