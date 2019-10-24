@@ -1,6 +1,6 @@
 # Lambda CS MUD Game Backend
 
-This is the backend of the :game Lambda MUD game. 🎮
+This is the backend of the Lambda MUD game. 🎮
 
 It is built with Python 🐍, Django, a SQLite database in development and PostgreSQL database in production.
 
