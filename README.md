@@ -1,2 +1,1 @@
-### Lambda CS Game Backend
-# back-end
+# Lambda CS MUD Game Backend
