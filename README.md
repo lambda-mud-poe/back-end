@@ -4,7 +4,7 @@
 
 ### Registration[POST]
 
-curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "password1":"testpassword", "password2":"testpassword"}' localhost:8000/api/registration/
+curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "password1":"testpassword", "password2":"testpassword"}' https://mount-doom-mud.herokuapp.com/api/registration/
 
 #### Response
 
@@ -14,7 +14,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "pas
 
 ### Login[POST]
 
-curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "password":"testpassword"}' localhost:8000/api/login/
+curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "password":"testpassword"}' https://mount-doom-mud.herokuapp.com/api/login/
 
 #### Response
 
@@ -24,7 +24,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "pas
 
 ### Initialize[GET]
 
-curl -X GET -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' localhost:8000/api/init/
+curl -X GET -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' https://mount-doom-mud.herokuapp.com/api/init/
 
 #### Response
 
@@ -34,7 +34,7 @@ curl -X GET -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' l
 
 ### Move[POST]
 
-curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"direction":"e"}' localhost:8000/api/move/
+curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"direction":"e"}' https://mount-doom-mud.herokuapp.com/api/move/
 
 #### Response
 
@@ -48,7 +48,7 @@ curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' 
 
 ### Say[POST]
 
-curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' localhost:8000/api/say/
+curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' https://mount-doom-mud.herokuapp.com/api/say/
 
 #### Response
 
