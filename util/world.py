@@ -488,7 +488,7 @@ class World:
                     room_direction = "err"
 
             # Create a room in the given direction
-            room = Room(id=room_count, title=room_titles[room_count],
+            room = Room(id=room_count, title=room_titles[room_count - 1],
                         description="The quest for thy nobly ring burns true and bright. Search on thou famed voyager!", x=x, y=y)
             # Note that in Django, you'll need to save the room after you create it
             room.save()
