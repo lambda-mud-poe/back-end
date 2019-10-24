@@ -25,6 +25,7 @@ def initialize(request):
     uuid = player.uuid
     room = player.room()
     players = room.playerNames(player_id)
+
     return JsonResponse({'uuid': uuid, 'name': player.user.username, 'x': room.x, 'y': room.y, 'room_id': room.id, 'title': room.title, 'description': room.description, 'players': players}, safe=True)
 
 
@@ -40,6 +41,7 @@ def move(request):
     direction = data['direction']
     room = player.room()
     nextRoomID = None
+
     if direction == "n":
         nextRoomID = room.n_to
     elif direction == "s":
@@ -48,6 +50,7 @@ def move(request):
         nextRoomID = room.e_to
     elif direction == "w":
         nextRoomID = room.w_to
+
     if nextRoomID is not None and nextRoomID > 0:
         nextRoom = Room.objects.get(id=nextRoomID)
         player.currentRoom = nextRoomID
@@ -55,10 +58,17 @@ def move(request):
         players = nextRoom.playerNames(player_id)
         currentPlayerUUIDs = room.playerUUIDs(player_id)
         nextPlayerUUIDs = nextRoom.playerUUIDs(player_id)
-        # for p_uuid in currentPlayerUUIDs:
-        #     pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {'message':f'{player.user.username} has walked {dirs[direction]}.'})
-        # for p_uuid in nextPlayerUUIDs:
-        #     pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {'message':f'{player.user.username} has entered from the {reverse_dirs[direction]}.'})
+
+        # broadcast movement to players in the current room
+        for p_uuid in currentPlayerUUIDs:
+            pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {
+                           'message': f'{player.user.username} has walked {dirs[direction]}.'})
+
+        # broadcast movement to players in the next room
+        for p_uuid in nextPlayerUUIDs:
+            pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {
+                           'message': f'{player.user.username} has entered from the {reverse_dirs[direction]}.'})
+
         return JsonResponse({'name': player.user.username, 'x': nextRoom.x, 'y': nextRoom.y, 'room_id': nextRoom.id, 'title': nextRoom.title, 'description': nextRoom.description, 'players': players, 'error_msg': ""}, safe=True)
     else:
         players = room.playerNames(player_id)
