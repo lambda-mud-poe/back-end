@@ -1,5 +1,5 @@
 from api.models import Room
-from .rooms import room_titles
+from util.rooms import room_titles
 import random
 
 
