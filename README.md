@@ -52,9 +52,9 @@ curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' 
     {"name": "thunder", "x": 1, "y": 0, "room_id": 2, "title": "Plain Garden Thicket", "description": "The quest for thy nobly ring burns true and bright. Search on thou famed voyager!", "players": [], "error_msg": ""}
 ```
 
-    - Pusher broadcast (stretch):
-        - Players in previous room receive a message: thunder has walked east.
-        - Players in next room receive a message: thunder has entered from the west.
+- Pusher broadcast (stretch):
+    - Players in previous room receive a message: thunder has walked east.
+    - Players in next room receive a message: thunder has entered from the west.
 
 ### Say[POST]
 
@@ -66,5 +66,51 @@ curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' 
     {"message": "Message: Hello, world! by player thunder has been broadcast successfully."}
 ```
 
-    - Pusher broadcast:
-        - Players in current room receive a message: thunder says "Hello, world!"
+- Pusher broadcast:
+    - Players in current room receive a message: thunder says "Hello, world!"
+
+## Loading the server
+
+### Set up a Pusher account
+
+- Sign up for a free account on pusher.com
+- Create a new app
+- Take note of your credentials app_id, key, secret, cluster
+- Look through the provided sample code and documentation
+
+### Set up your local server
+
+#### Set up your virtual environment
+
+- pipenv --three
+- pipenv install
+- pipenv shell
+
+#### Add your secret credentials
+
+- Create .env in the root directory of your project
+- Add your pusher credentials and secret key
+
+```
+SECRET_KEY='<your_secret_key>'
+DEBUG=True
+PUSHER_APP_ID=<your_app_id>
+PUSHER_KEY=<your_pusher_key>
+PUSHER_SECRET=<your_pusher_secret>
+PUSHER_CLUSTER=<your_pusher_cluster>
+```
+
+### Run database migrations
+
+- ./manage.py makemigrations
+- ./manage.py migrate
+
+### Add rooms to your database
+
+- ./manage.py shell
+- Copy/paste the contents of util/mount_doom_init.py into the Python interpreter
+- Exit the interpreter
+
+### Run the server
+
+- ./manage.py runserver
