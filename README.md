@@ -14,7 +14,11 @@ The frontend is built with React and can be found [here](https://mud-mount-doom.
 
 ### Registration[POST]
 
+#### Request
+
+```
 curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "password1":"testpassword", "password2":"testpassword"}' https://mount-doom-mud.herokuapp.com/api/registration/
+```
 
 #### Response
 
@@ -24,7 +28,11 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "pas
 
 ### Login[POST]
 
+#### Request
+
+```
 curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "password":"testpassword"}' https://mount-doom-mud.herokuapp.com/api/login/
+```
 
 #### Response
 
@@ -34,7 +42,11 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"thunder", "pas
 
 ### Initialize[GET]
 
+#### Request
+
+```
 curl -X GET -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' https://mount-doom-mud.herokuapp.com/api/init/
+```
 
 #### Response
 
@@ -44,7 +56,11 @@ curl -X GET -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' h
 
 ### Move[POST]
 
+#### Request
+
+```
 curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"direction":"e"}' https://mount-doom-mud.herokuapp.com/api/move/
+```
 
 #### Response
 
@@ -59,7 +75,11 @@ curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' 
 
 ### Say[POST]
 
+#### Request
+
+```
 curl -X POST -H 'Authorization: Token abba6538c2ad559860ed87e5f6d6ed54ab5da56f' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' https://mount-doom-mud.herokuapp.com/api/say/
+```
 
 #### Response
 
